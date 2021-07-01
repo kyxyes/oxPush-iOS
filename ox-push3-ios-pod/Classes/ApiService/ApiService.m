@@ -84,7 +84,7 @@
                                   serializerWithReadingOptions:NSJSONReadingAllowFragments];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/x-www-form-urlencoded"];//x-www-form-urlencoded"];//application/json
     
-    [manager POST:url parameters:parameters headers: nil progress: nil success:^(NSURLSessionDataTask *operation, id responseObject) {
+    [manager POST:url parameters:parameters success:^(NSURLSessionDataTask *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         handler(responseObject ,nil);
     } failure:^(NSURLSessionDataTask *operation, NSError *error) {
