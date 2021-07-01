@@ -91,7 +91,7 @@ int keyHandleLength = 64;
         [signedData appendData:applicationSha256Data];
         [self initBLE:signedData crypto:crypto userPublicKey:userPublicKey keyHandle:keyHandle callback:handler];
     } else {
-        signedData = [[NSMutableData alloc] initWithData:[codec encodeEnrollementSignedBytes:REGISTRATION_RESERVED_BYTE_VALUE applicationSha256:applicationSha256 challengeSha256:challengeSha256 keyHandle:keyHandle userPublicKey:userPublicKey]];
+        signedData = [[NSMutableData alloc] initWithData:[codec encodeEnrollementSignedBytes:REGISTRATION_SIGNED_RESERVED_BYTE_VALUE applicationSha256:applicationSha256 challengeSha256:challengeSha256 keyHandle:keyHandle userPublicKey:userPublicKey]];
         EnrollmentResponse* response = [self makeEnrollmentResponse:signedData crypto:crypto userPublicKey:userPublicKey keyHandle:keyHandle];
         handler(response ,nil);
     }
